@@ -6,7 +6,7 @@ function CategoriesScreen({navigation}) {
     function renderCategoryItem ({itemData}){
 
         function handlePress (){
-            navigation.navigate('MealsOveriview');
+            navigation.navigate('MealsOveriview',{ categoryId:itemData.item.id});
         }
 
         return <CategoryGridTile title={itemData.item.title} color={itemData.item.color} />

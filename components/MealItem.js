@@ -1,4 +1,11 @@
-import { Pressable, Text, View, Image, Platform } from "react-native";
+import {
+  Pressable,
+  Text,
+  View,
+  Image,
+  Platform,
+  StyleSheet,
+} from "react-native";
 
 function MealItem({ item, imageUrl, duration, complexity, affordability }) {
   return (

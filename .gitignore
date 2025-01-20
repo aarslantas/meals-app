@@ -1,0 +1,60 @@
+# Node.js
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React Native
+android/app/build/
+ios/Pods/
+ios/build/
+*.xcworkspace
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/
+
+# OS & Editor specific
+.DS_Store
+.idea/
+*.swp
+*.swo
+.vscode/
+*.iml
+
+# Debugger working directories
+__snapshots__
+*.lock
+package-lock.json
+yarn.lock
+.expo/
+
+# Environment variables
+.env
+.env.*
+
+# Bundler output
+dist/
+build/
+build-*
+.expo-shared/
+web-build/
+
+# Expo
+.expo/
+.expo-shared/
+
+# Metro bundler cache
+*.metro-cache
+*.tmp
+
+# React Native sensitive keys
+android/key.properties
+android/app/debug.keystore
+
+# ESLint & Prettier
+.eslintcache
+.prettierignore
+
+# Coverage files
+coverage/
+*.lcov

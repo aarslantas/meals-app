@@ -2,9 +2,8 @@ import { Pressable, Text, View, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 function CategoryGridTile({ title, color, onPress }) {
-  const navigation = useNavigation();
   return (
-    <view style={[styles.gridItem]}>
+    <View style={styles.gridItem}>
       <Pressable
         android_ripple={{ color: "#ccc" }}
         onPress={onPress}
@@ -14,7 +13,7 @@ function CategoryGridTile({ title, color, onPress }) {
           <Text style={styles.title}>{title}</Text>
         </View>
       </Pressable>
-    </view>
+    </View>
   );
 }
 
@@ -34,7 +33,6 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     overflow: "hidden",
   },
-
   button: {
     flex: 1,
   },

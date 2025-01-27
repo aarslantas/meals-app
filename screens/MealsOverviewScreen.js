@@ -21,6 +21,7 @@ function MealsOverviewScreen({ route, navigation }) {
   }, [navigation, catId]);
 
   function renderMealItem(itemData) {
+    console.log("itemData", itemData);
     const mealItemProps = {
       title: itemData.item.title,
       imageUrl: itemData.item.imageUrl,

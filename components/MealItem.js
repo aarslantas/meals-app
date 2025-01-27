@@ -7,7 +7,8 @@ import {
   StyleSheet,
 } from "react-native";
 
-function MealItem({ item, imageUrl, duration, complexity, affordability }) {
+function MealItem({ title, imageUrl, duration, complexity, affordability }) {
+  console.log("complexity123", complexity);
   return (
     <View>
       <Pressable
@@ -21,8 +22,8 @@ function MealItem({ item, imageUrl, duration, complexity, affordability }) {
           </View>
           <View style={styles.details}>
             <Text style={styles.detailItem}>{duration}</Text>
-            <Text style={styles.detailItem}>{complexity.toUppercase()}</Text>
-            <Text style={styles.detailItem}>{affordability.toUppercase()}</Text>
+            <Text style={styles.detailItem}>{complexity}</Text>
+            <Text style={styles.detailItem}>{affordability}</Text>
           </View>
         </View>
       </Pressable>

@@ -5,7 +5,6 @@ import { useLayoutEffect } from "react";
 
 function MealsOverviewScreen({ route, navigation }) {
   const catId = route.params.categoryId;
-  // MEALS
 
   const displayedMeals = MEALS.filter((mealItem) => {
     return mealItem.categoryIds.indexOf(catId) >= 0;
@@ -23,6 +22,7 @@ function MealsOverviewScreen({ route, navigation }) {
   function renderMealItem(itemData) {
     console.log("itemData", itemData);
     const mealItemProps = {
+      id: itemData.item.id,
       title: itemData.item.title,
       imageUrl: itemData.item.imageUrl,
       duration: itemData.item.duration,

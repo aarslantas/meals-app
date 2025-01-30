@@ -1,6 +1,8 @@
-import { Image, View, Text, StyleSheet } from "react-native";
+import { Image, View, Text, StyleSheet, ScrollView } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
+import Subtitle from "../components/MealDetail/SubTitle";
+import List from "../components/MealDetail/List";
 
 function MealDetailScreen({ route }) {
   const mealId = route.params.mealId;
@@ -10,7 +12,7 @@ function MealDetailScreen({ route }) {
   });
 
   return (
-    <View>
+    <ScrollView style={styles.rootContainer}>
       <Image style={styles.image} source={{ uri: meal.imageUrl }} />
       <Text>{meal.title}</Text>
       <MealDetails
@@ -19,24 +21,22 @@ function MealDetailScreen({ route }) {
         affordability={meal.affordability}
         textStyle={styles.detailText}
       />
-      <View style={styles.subtitleContainer}>
-        <Text style={styles.subtitle}>Ingredients</Text>
+      <View style={styles.listOuterContainer}>
+        <View style={styles.listContainer}>
+          <Subtitle>ingredients</Subtitle>
+          <List data={meal.ingredients} />
+          <Subtitle>Steps</Subtitle>
+          <List data={meal.steps} />
+        </View>
       </View>
-
-      {meal.ingredients.map((ingredient) => {
-        return <Text key={ingredient}>{ingredient}</Text>;
-      })}
-      <View style={styles.subtitleContainer}>
-        <Text style={styles.subtitle}>Steps</Text>{" "}
-      </View>
-      {meal.steps.map((step) => {
-        return <Text key={step}>{step}</Text>;
-      })}
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  rootContainer: {
+    marginBottom: 32,
+  },
   image: {
     width: "100%",
     height: 350,
@@ -51,19 +51,11 @@ const styles = StyleSheet.create({
   detailText: {
     color: "white",
   },
-  subtitle: {
-    color: "#e2b497",
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center",
+  listOuterContainer: {
+    alignItems: "center",
   },
-  subtitleContainer: {
-    margin: 4,
-    padding: 6,
-    marginHorizontal: 24,
-    marginVertical: 4,
-    borderBottomColor: "#e2b497",
-    borderBottomWidth: 2,
+  listContainer: {
+    maxWidth: "80%",
   },
 });
 

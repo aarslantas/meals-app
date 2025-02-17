@@ -16,27 +16,35 @@ import IconButton from "../components/IconButton";
 function MealDetailScreen({ route, navigation }) {
   const mealId = route.params.mealId;
 
+  const favoriteMealsCtx = useContext(FavoritesContext);
+
   const meal = MEALS.find((mealItem) => {
     return mealItem.id === mealId;
   });
 
-  function handleHeaderButtonPress() {
-    navigation.navigate("MealsOverview");
+  function handleChangeFavoriteStatus() {
+    if (mealIsFavorite) {
+      favoriteMealsCtx.removeFavorite(mealId);
+    } else {
+      favoriteMealsCtx.addFavorite(mealId);
+    }
   }
+
+  const mealIsFavorite = favoriteMealsCtx.ids.ids.includes(mealId);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
         return (
           <IconButton
-            icon="star"
+            icon={mealIsFavorite ? "star" : "star-outline"}
             color="white"
-            onPress={handleHeaderButtonPress}
+            onPress={handleChangeFavoriteStatus}
           />
         );
       },
     });
-  }, [navigation, handleHeaderButtonPress]);
+  }, [navigation, handleChangeFavoriteStatus]);
 
   return (
     <ScrollView style={styles.rootContainer}>

@@ -12,6 +12,7 @@ import MealDetails from "../components/MealDetails";
 import Subtitle from "../components/MealDetail/SubTitle";
 import List from "../components/MealDetail/List";
 import IconButton from "../components/IconButton";
+import FavoritesContext from "../store/context/favorites-context";
 
 function MealDetailScreen({ route, navigation }) {
   const mealId = route.params.mealId;
